@@ -28,7 +28,7 @@ public class Servidor {
 
                 //cerramos conexion con el cliente
                 sc.close();
-                System.out.println("Cliente desconectado");
+                System.out.println("Cliente descone");
             }
         } catch (IOException e) {
             e.printStackTrace();
