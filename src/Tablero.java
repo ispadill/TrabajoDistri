@@ -34,9 +34,9 @@ public class Tablero {
             System.out.println();
         }
     }
-    public int getTurno{
+    /*public int getTurno{
         return this.turno;
-    }
+    }*/
     public int cambiarTurno(){
         if(turno==1){
             turno=2;
