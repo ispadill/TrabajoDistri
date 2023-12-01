@@ -16,7 +16,7 @@ public class Principal {
 
         char tablero[][] = new char[3][3];
 
-        rellenarMatriz(tablero,vacio);//rellenar matriz con todoo -
+        rellenarMatriz(tablero,vacio);//rellenar matriz con toodo -
 
         int fila, columna;
 
