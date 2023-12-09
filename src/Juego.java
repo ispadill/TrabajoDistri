@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Principal {
+public class Juego {
 
     static Scanner entrada = new Scanner(System.in);
     public static void main(String[] args) {

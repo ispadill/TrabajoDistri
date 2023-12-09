@@ -1,43 +1,40 @@
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Servidor {
-    public static void main(String [] args) throws IOException {
-        ServerSocket servidor = null;
+    public static void main(String [] args) {
+
         Socket sc = null;
-        DataInputStream in = null;
-        DataOutputStream out = null;
-        final int PUERTO = 5000;
+        Socket sc2 = null;
 
-        try {
-            servidor = new ServerSocket(PUERTO);
+        try(ServerSocket servidor = new ServerSocket(5000)){
+
             System.out.println("Servidor iniciado");
+            try {
+                while(true) {
+                    sc = servidor.accept();
+                    ObjectInputStream in = new ObjectInputStream(sc.getInputStream());
+                    ObjectOutputStream out = new ObjectOutputStream(sc.getOutputStream());
+                    System.out.println("Conexion 1 aceptada");
 
-            while(true) {
-                sc = servidor.accept();
-                in = new DataInputStream(sc.getInputStream());
-                out = new DataOutputStream(sc.getOutputStream());
-                String msgCli = in.readUTF();
-                //aqui vamos a hacer las operaciones con el cliente
-                System.out.println("Mensaje del cliente: "+ msgCli);//de momoento muestro el mensaje
+                    //aceptamos 2o cliente y ObjectOutPutStreams
+                    sc2 = servidor.accept();
+                    ObjectInputStream in2 = new ObjectInputStream(sc.getInputStream());
+                    ObjectOutputStream out2 = new ObjectOutputStream(sc.getOutputStream());
+                    System.out.println("Conexion 2 aceptada");
 
-                out.writeUTF("Hola desde el servidor");
 
-                //cerramos conexion con el cliente
-                sc.close();
-                System.out.println("Cliente descone");
+
+
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         } catch (IOException e) {
             e.printStackTrace();
-        }finally {
-            in.close();
-            out.close();
-            sc.close();
-            servidor.close();
         }
+
 
     }
 }
