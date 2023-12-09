@@ -215,7 +215,7 @@ public class Principal {
                 return simbolo;
             }
         }
-
+        //
         //Diagonal inversa
         simbolo=matriz[0][2];
         if(simbolo!=simboloDef){
