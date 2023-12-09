@@ -16,7 +16,7 @@ public class Principal {
 
         char tablero[][] = new char[3][3];
 
-        rellenarMatriz(tablero,vacio);//rellenar matriz con toodo -
+        rellenarMatriz(tablero,vacio);//rellenar matriz con toodoo -
 
         int fila, columna;
 
@@ -72,7 +72,7 @@ public class Principal {
                 System.out.println("Ha ganado el jugador 2 por linea");
             }
         }
-        simbolo = coincidenciaLinea(matriz,simDef);
+        simbolo = coincidenciaColumna(matriz,simDef);
         if(simbolo!=simDef) {
             if (simbolo == J1) {
                 System.out.println("Ha ganado el jugador 1 por columna");
@@ -80,7 +80,7 @@ public class Principal {
                 System.out.println("Ha ganado el jugador 2 por columna");
             }
         }
-        simbolo = coincidenciaLinea(matriz,simDef);
+        simbolo = coincidenciaDiagonal(matriz,simDef);
         if(simbolo!=simDef) {
             if (simbolo == J1) {
                 System.out.println("Ha ganado el jugador 1 por diagonal");
@@ -204,12 +204,34 @@ public class Principal {
         boolean coincidencia=true;
 
         //Diagonal principal
-
-        if(matriz[0][0]!=simboloDef){
-            for(int i=0;i< matriz.length;i++) {
+        simbolo=matriz[0][0];
+        if(simbolo!=simboloDef){
+            for(int i=1;i< matriz.length;i++) { //no hace falta j, porque va a ser lo mismo que la i
+                if(simbolo!=matriz[i][i]){
+                    coincidencia=false;
+                }
+            }
+            if(coincidencia){
+                return simbolo;
             }
         }
-        return simboloDef; //INCOMPLETA
+
+        //Diagonal inversa
+        simbolo=matriz[0][2];
+        if(simbolo!=simboloDef){
+            for(int i=1, j=1 ; i < matriz.length ; i++, j--) { //no hace falta j, porque va a ser lo mismo que la i
+                if(simbolo!=matriz[i][j]){
+                    coincidencia=false;
+                }
+            }
+            if(coincidencia){
+                return simbolo;
+            }
+        }
+
+
+
+        return simboloDef;
     }
 
 }
