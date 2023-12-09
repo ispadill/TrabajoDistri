@@ -45,7 +45,7 @@ public class Juego {
                         System.out.println("ya hay una marca en esa posicion");
                     }
                 }else{
-                        System.out.println("la posicion de es valida");
+                        System.out.println("la posicion no es valida");
                     }
 
             }while(!correcto);     //si no es correcto, no pasas de aqui

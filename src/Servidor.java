@@ -23,7 +23,7 @@ public class Servidor {
                     ObjectInputStream in2 = new ObjectInputStream(sc.getInputStream());
                     ObjectOutputStream out2 = new ObjectOutputStream(sc.getOutputStream());
                     System.out.println("Conexion 2 aceptada");
-
+                    //meto el hilo
 
 
 
