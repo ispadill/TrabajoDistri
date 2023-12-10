@@ -3,11 +3,8 @@ import java.util.Scanner;
 public class Juego {
 
     static Scanner entrada = new Scanner(System.in);
-    public static void main(String[] args) {
-        jugar();
-    }
 
-    private static void jugar() {
+    public void jugar() {
         char J1='X';
         char J2='O';
         char vacio='-';
@@ -62,8 +59,7 @@ public class Juego {
         mostrarMatriz(tablero);
         mostrarGanador(tablero,J1,J2,vacio);
     }
-
-    public static void mostrarGanador(char[][] matriz, char J1,char J2, char simDef){
+    public void mostrarGanador(char[][] matriz, char J1,char J2, char simDef){
         char simbolo = coincidenciaLinea(matriz,simDef);
         if(simbolo!=simDef) {
             if (simbolo == J1) {
@@ -90,42 +86,42 @@ public class Juego {
         }
 
     }
-    public static void insertarEn(char[][] matriz, int fila, int columna,char simbolo){
+    public void insertarEn(char[][] matriz, int fila, int columna,char simbolo){
         matriz[fila][columna]=simbolo;
     }
-    public static void mostrarTurnoActual(boolean turno){
+    public void mostrarTurnoActual(boolean turno){
         if(turno){
             System.out.println("Le toca al jugador 1");
         }else{
             System.out.println("Le toca al jugador 2");
         }
     }
-    public static int pedirInteger(String mensaje){
+    public int pedirInteger(String mensaje){
         System.out.println(mensaje);
         int numero=entrada.nextInt();
         return numero;
     }
-    public static void rellenarMatriz(char[][] matriz, char simbolo){
+    public void rellenarMatriz(char[][] matriz, char simbolo){
         for(int i=0;i<matriz.length;i++){
             for(int j=0;j< matriz.length;j++){
                 matriz[i][j] = simbolo;
             }
         }
     }
-    public static boolean validarPosicion(char[][] tablero, int fila, int columna){
+    public boolean validarPosicion(char[][] tablero, int fila, int columna){
         if(fila>=0 && fila< tablero.length && columna>=0 && columna<tablero.length){
             return true;
         }
         return false;
     }
-    public static boolean hayValorPosicion(char[][] matriz, int fila, int columna, char simboloDef){
+    public boolean hayValorPosicion(char[][] matriz, int fila, int columna, char simboloDef){
         if(matriz[fila][columna] != simboloDef){
             return false;
         }
         return true; //que haya una X o un O
     }
 
-    public static boolean finPartida(char[][] matriz, char simboloDef){
+    public boolean finPartida(char[][] matriz, char simboloDef){
         if(matrizLlena(matriz, simboloDef) ||
                 coincidenciaLinea(matriz,simboloDef) !=simboloDef ||
                 coincidenciaColumna(matriz,simboloDef)!=simboloDef  ||
@@ -134,7 +130,7 @@ public class Juego {
         }
         return  false;
     }
-    public static void mostrarMatriz(char[][] matriz){
+    public void mostrarMatriz(char[][] matriz){
         for(int i=0;i<matriz.length;i++){
             for(int j=0;j< matriz.length;j++){
                 System.out.print(matriz[i][j]+" ");
@@ -143,7 +139,7 @@ public class Juego {
         }
 
     }
-    public static char coincidenciaLinea(char[][] matriz, char simboloDef){
+    public char coincidenciaLinea(char[][] matriz, char simboloDef){
         char simbolo;
         boolean coincidencia;
 
@@ -166,7 +162,7 @@ public class Juego {
 
         return simboloDef;
     }
-    public static  boolean matrizLlena(char[][] matriz, char simboloDef){
+    public  boolean matrizLlena(char[][] matriz, char simboloDef){
         for(int i=0;i<matriz.length;i++){
             for(int j=0;j< matriz.length;j++){
                 if(matriz[i][j]==simboloDef){
@@ -176,7 +172,7 @@ public class Juego {
         }
         return true;
     }
-    public static char coincidenciaColumna(char[][] matriz, char simboloDef){
+    public char coincidenciaColumna(char[][] matriz, char simboloDef){
         char simbolo;
         boolean coincidencia;
 
@@ -199,7 +195,7 @@ public class Juego {
 
         return simboloDef;
     }
-    public static char coincidenciaDiagonal(char[][] matriz, char simboloDef){
+    public char coincidenciaDiagonal(char[][] matriz, char simboloDef){
         char simbolo;
         boolean coincidencia=true;
 
